@@ -1,0 +1,167 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff4e8d,#ff1f6b);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  
+}
+
+/* 🎁 Gift screen */
+#giftScreen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff4e8d,#ff1f6b);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    z-index:9998;
+}
+
+#giftBox{
+    font-size:90px;
+    cursor:pointer;
+    animation:giftShake 1.2s infinite;
+}
+
+@keyframes giftShake{
+    0%{transform:rotate(0);}
+    25%{transform:rotate(6deg);}
+    50%{transform:rotate(-6deg);}
+    75%{transform:rotate(6deg);}
+    100%{transform:rotate(0);}
+}
+
+.hidden{ display:none; }
+
+/* 💖 Card */
+.card{
+    background:#ff5fa2;
+    width:380px;           /* ⬅️ thoda aur space for text */
+    max-width:94vw;        /* mobile safe */
+    padding:30px 28px;     /* airy padding */
+    border-radius:24px;    /* smoother edges */
+    text-align:center;
+    color:white;
+    box-shadow:0 12px 34px rgba(0,0,0,0.28);
+    position:relative;
+    z-index:2;
+}
+
+.photo-wrap{
+    position:relative;
+    display:inline-block;
+    margin-bottom:15px;
+}
+
+.photo-wrap img{
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid white;
+    box-shadow:0 0 15px rgba(255,255,255,0.6);
+}
+
+.heart-float{
+    position:absolute;
+    font-size:16px;
+    animation:floatHeart 2.5s infinite ease-in-out;
+}
+
+@keyframes floatHeart{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px) scale(1.2);}
+    100%{transform:translateY(0);}
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+button{
+    border:none;
+    padding:10px 22px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.yes{
+    background:white;
+    color:#ff1f6b;
+    font-weight:bold;
+}
+
+.no{
+    background:#ff1f6b;
+    color:white;
+}
+
+/* ❤️ Background hearts */
+.hearts{
+    position:absolute;
+    inset:0;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    font-size:18px;
+    animation:bgFloat 6s linear infinite;
+    opacity:0.5;
+}
+
+@keyframes bgFloat{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* 💬 FLOATING TEXT + EMOJI */
+.floating-text{
+    position:absolute;
+    font-size:18px;
+    color:rgba(255,255,255,0.9);
+    pointer-events:none;
+    z-index:0;
+    opacity:1; /* 👈 instant visible */
+    animation:floatText 6s linear forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes floatText{
+    0%{
+        transform:translateY(85vh); /* 👈 already visible */
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-15vh);
+        opacity:0;
+    }
+}
+
+/* 💖 Final screen */
+#loveScreen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff4e8d,#ff1f6b);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+    z-index:9999;
+}
